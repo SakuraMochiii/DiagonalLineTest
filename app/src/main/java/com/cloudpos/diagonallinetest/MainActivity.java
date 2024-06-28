@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -87,7 +88,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "please open printer", Toast.LENGTH_SHORT).show();
                 return;
             }
-            Bitmap bitmap = BitmapFactory.decodeStream(mContext.getResources().getAssets().open("diag_lines.png"));
+            Bitmap bitmap = BitmapFactory.decodeStream(mContext.getResources().getAssets().open("diaglines-pieced.png"));
+//            for (int i = 0; i < bitmap.getHeight(); i++) {
+//                bitmap.setPixel(30, i, Color.WHITE);
+//            }
             device.printBitmap(bitmap);
             bitmap.recycle();
             device.printText("\n");
