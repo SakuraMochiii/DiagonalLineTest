@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -17,12 +18,17 @@ import com.cloudpos.POSTerminal;
 import com.cloudpos.printer.PrinterDevice;
 //import com.cloudpos.sdk.printer.html.PrinterHtmlListener;
 
+import org.opencv.android.OpenCVLoader;
+
+import java.io.IOException;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     PrinterDevice device = null;
 
     public Context mContext;
+    private static final String TAG = "Main::Activity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_land);
         setTitle("" + new Date());
         mContext = this;
+
+        if (OpenCVLoader.initLocal()) {
+            Log.i(TAG, "OpenCV loaded successfully");
+        } else {
+            Log.e(TAG, "OpenCV initialization failed!");
+            (Toast.makeText(this, "OpenCV initialization failed!", Toast.LENGTH_LONG)).show();
+            return;
+        }
     }
 
     Handler handler = new Handler() {
@@ -40,6 +54,15 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
+    public void detect(View v) {
+        DetectMethods d = new DetectMethods();
+        try {
+            d.detect(mContext, "diaglines-both.png");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void initPrinter(View v) {
 

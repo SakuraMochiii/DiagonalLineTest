@@ -7,6 +7,9 @@ import android.net.Uri;
 import android.util.Log;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import org.opencv.android.CameraActivity;
 import org.opencv.android.Utils;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
@@ -28,22 +31,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class DetectMethods {
+public class DetectMethods extends AppCompatActivity {
     private static final String TAG = "PATH";
     public Context mContext;
 
 
-    public void show_wait_destroy(Bitmap bmp) { //display image
+    public void show_wait_destroy(Context context, Bitmap bmp) { //display image
 
         //display onandorid device
-        ImageView mImageView = null;
-//        mImageView = mImageView.findViewById(R.id.detected);
+        setContentView(R.layout.print_detect);
+        ImageView mImageView = findViewById(R.id.detected);
+//        mImageView.setImageResource();
+
+
+//        mImageView = mImageView.findViewById(R.id.tutorial1_activity_java_surface_view);
 //        String path = System.getProperty("user.dir") + filename; //img path
 //        Log.i(TAG, path);
 //        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
 //        path = "User/home/tiana/Downloads/wizarpos/DiagonalLines/app/src/main/java/com/cloudpos/diagonallinetest/diaglines-both.png";
         mImageView.setImageBitmap(bmp);
     }
+
     public Mat read_img(Context context, String img) throws IOException {
 //        File f = new File(img);
 //        String absolute = f.getAbsolutePath();
@@ -69,7 +77,7 @@ public class DetectMethods {
         Mat resized = new Mat();
         Size sz = new Size(500, (double) (500 * w) / h);
         Imgproc.resize(src, resized, sz); //resize image to 500 px wide
-        show_wait_destroy(bmp2);
+//        show_wait_destroy(context, bmp2);
         return resized;
     }
 
@@ -234,14 +242,17 @@ public class DetectMethods {
                 }
             }
         }
-        Collections.sort(vert, (o1, o2) -> Double.compare(o2[0], o1[0]));
+        vert.sort((o1, o2) -> Double.compare(o2[0], o1[0]));
         double prevh = 0;
         if (!vert.isEmpty()) prevh = vert.get(0)[0];
         List<double[]> new_vert = new ArrayList<>();
         for (double[] i : vert) {
             if (i[0] - prevh > 6) new_vert.add(i);
         }
-        new_vert.remove(new_vert.size() - 1);
+
+        if (!new_vert.isEmpty()) {
+            new_vert.remove(new_vert.size() - 1);
+        }
 
         for (double[] i : horiz) {
             Imgproc.line(draw, new Point(i[1], i[2]), new Point(i[3], i[4]), new Scalar(255, 200, 180), 2);

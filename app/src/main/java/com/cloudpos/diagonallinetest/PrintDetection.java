@@ -49,7 +49,7 @@ public class PrintDetection extends CameraActivity implements CvCameraViewListen
 
         DetectMethods d = new DetectMethods();
         try {
-            d.detect(mContext, "diaglines-bht.png");
+            d.detect(mContext, "diaglines-both.png");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

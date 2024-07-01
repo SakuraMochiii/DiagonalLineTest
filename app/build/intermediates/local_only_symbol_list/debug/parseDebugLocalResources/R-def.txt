@@ -6,11 +6,13 @@ color colorPrimaryDark
 drawable black_square
 drawable ic_launcher_background
 id closePrinter
+id detect
+id detected
 id editText_1
 id initPrinter_btn
 id initialPrinter
+id print_detect
 id printerPrint_btn
-id tutorial1_activity_java_surface_view
 layout activity_main_land
 layout print_detect
 mipmap ic_launcher
