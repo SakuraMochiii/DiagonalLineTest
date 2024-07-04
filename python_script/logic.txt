@@ -21,3 +21,10 @@ Code Logic:
  - getAxis: only keep lines based on their angle, return 0 for horizontal and 1 for vertical
  - drawLines: append lines to horiz and vert arrays to further filter the lines to ensure only important lines are drawLines
  - findLines/main: call above helper functions
+
+Running the code:
+ - Python: run printerJamDetection.py, call main with the name of the image file you would like to test (ex. main(["diagvert-30-photo.png"]))
+           Input files should be photos of printed receipts with potential errors
+ - Android: to print a sample picture, run MainActivity and click the open printer button, followed by printImg. 
+            Select which image to print by changing the file name in the printImg function in MainActivity.java to any file under assets.
+     - Work in progress: implement CameraMethods to use POS camera to take a photo, then display the photo before and after analyzing with OpenCV
