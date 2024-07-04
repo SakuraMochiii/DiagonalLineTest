@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
-public class PrintDetection extends CameraActivity implements CvCameraViewListener2 {
+public class PrintDetection extends CameraActivity implements CvCameraViewListener2 { //Test the camera with OpenCV
     private static final String TAG = "OCVSample::Activity";
 
     private CameraBridgeViewBase mOpenCvCameraView;
@@ -31,7 +31,7 @@ public class PrintDetection extends CameraActivity implements CvCameraViewListen
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
 
 //        Log.i(TAG, "called onCreate");
         super.onCreate(savedInstanceState);
@@ -43,13 +43,14 @@ public class PrintDetection extends CameraActivity implements CvCameraViewListen
             (Toast.makeText(this, "OpenCV initialization failed!", Toast.LENGTH_LONG)).show();
             return;
         }
-        mContext = this;
+        mContext = this.getApplicationContext();
 //        Bitmap bitmap = BitmapFactory.decodeStream(mContext.getResources().getAssets().open(img));
 
+        setContentView(R.layout.print_detect);
 
         DetectMethods d = new DetectMethods();
         try {
-            d.detect(mContext, "diaglines-both.png");
+            d.detect("diaglines-both.png", mContext, findViewById(R.id.detect_id));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

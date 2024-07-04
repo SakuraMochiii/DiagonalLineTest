@@ -1,11 +1,8 @@
 package com.cloudpos.diagonallinetest;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,10 +10,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.cloudpos.DeviceException;
 import com.cloudpos.POSTerminal;
 import com.cloudpos.printer.PrinterDevice;
-//import com.cloudpos.sdk.printer.html.PrinterHtmlListener;
 
 import org.opencv.android.OpenCVLoader;
 
@@ -35,14 +34,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_land);
         setTitle("" + new Date());
-        mContext = this;
+        mContext = this.getApplicationContext();
 
         if (OpenCVLoader.initLocal()) {
             Log.i(TAG, "OpenCV loaded successfully");
         } else {
             Log.e(TAG, "OpenCV initialization failed!");
             (Toast.makeText(this, "OpenCV initialization failed!", Toast.LENGTH_LONG)).show();
-            return;
+        }
+        DetectMethods d = new DetectMethods();
+        try {
+            setContentView(R.layout.print_detect);
+//            View view =
+            d.detect("diaglines-both.png", mContext, this.findViewById(R.id.detect_id));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -58,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     public void detect(View v) {
         DetectMethods d = new DetectMethods();
         try {
-            d.detect(mContext, "diaglines-both.png");
+            d.detect("diaglines-both.png", v.getContext(), v);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

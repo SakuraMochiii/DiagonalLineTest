@@ -1,15 +1,14 @@
 package com.cloudpos.diagonallinetest;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import org.opencv.android.CameraActivity;
 import org.opencv.android.Utils;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
@@ -23,24 +22,27 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.photo.Photo;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class DetectMethods extends AppCompatActivity {
+public class DetectMethods extends Activity { //Scan image with OpenCV to find print errors
     private static final String TAG = "PATH";
+    private ImageView mImageView;
     public Context mContext;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
 
-    public void show_wait_destroy(Context context, Bitmap bmp) { //display image
+        super.onCreate(savedInstanceState);
+        mContext = this;
+    }
+
+    private void show_wait_destroy(Context context, Bitmap bmp) { //display image
 
         //display onandorid device
         setContentView(R.layout.print_detect);
-        ImageView mImageView = findViewById(R.id.detected);
+        mImageView = findViewById(R.id.detected);
 //        mImageView.setImageResource();
 
 
@@ -52,7 +54,7 @@ public class DetectMethods extends AppCompatActivity {
         mImageView.setImageBitmap(bmp);
     }
 
-    public Mat read_img(Context context, String img) throws IOException {
+    private Mat read_img(String img) throws IOException { //read file
 //        File f = new File(img);
 //        String absolute = f.getAbsolutePath();
 //        Path path = Paths.get(img);
@@ -61,7 +63,7 @@ public class DetectMethods extends AppCompatActivity {
 //        String absolute = System.getProperty("user.dir") + img; //img path
 //        mContext = this;
 //
-        Bitmap bitmap = BitmapFactory.decodeStream(context.getResources().getAssets().open(img));
+        Bitmap bitmap = BitmapFactory.decodeStream(mContext.getResources().getAssets().open(img));
 //
 //        Log.i(TAG, absolute.toString());
 //        String s = "/home/tiana/Downloads/wizarpos/DiagonalLines/app/src/main/java/com/cloudpos/diagonallinetest/diaglines-both.png";
@@ -81,21 +83,21 @@ public class DetectMethods extends AppCompatActivity {
         return resized;
     }
 
-    public Mat preprocess(Mat src) {
+    private Mat preprocess(Mat src) { //Process the image
         Mat norm = new Mat(src.rows(), src.cols(), src.type(), new Scalar(0));
-        Core.normalize(src, norm, 0, 255, Core.NORM_MINMAX);
+        Core.normalize(src, norm, 0, 255, Core.NORM_MINMAX); //normalize image
         Mat denoised = new Mat(src.rows(), src.cols(), src.type());
-        Photo.fastNlMeansDenoisingColored(src, denoised, 10, 10, 7, 15);
+        Photo.fastNlMeansDenoisingColored(src, denoised, 10, 10, 7, 15); //reduce noise
         Mat buf = new Mat(src.rows(), src.cols(), src.type());
-        Core.addWeighted(denoised, 1.2, denoised, 0, 0, buf);
+        Core.addWeighted(denoised, 1.2, denoised, 0, 0, buf); //increase contrast
         Mat gray = new Mat(src.rows(), src.cols(), src.type());
-        Imgproc.cvtColor(buf, gray, Imgproc.COLOR_BGR2GRAY, 0);
+        Imgproc.cvtColor(buf, gray, Imgproc.COLOR_BGR2GRAY, 0); //change to grayscale
         Mat gray_not = new Mat(src.rows(), src.cols(), src.type());
-        Core.bitwise_not(gray, gray_not);
+        Core.bitwise_not(gray, gray_not); //invert image
         return gray_not;
     }
 
-    public Mat find_square(Mat gray) {
+    private Mat find_square(Mat gray) {
         Mat edges = new Mat(gray.rows(), gray.cols(), gray.type());
         Imgproc.Canny(gray, edges, 200, 200, 3, false);
         List<MatOfPoint> cnts = new ArrayList<>();
@@ -120,7 +122,7 @@ public class DetectMethods extends AppCompatActivity {
 //            boxes.add(coords);
         }
 
-        Imgproc.rectangle(blank, new Point(left,top), new Point(right,bottom), new Scalar (255, 255, 255), Imgproc.FILLED);
+        Imgproc.rectangle(blank, new Point(left,top), new Point(right,bottom), new Scalar (255, 255, 255), Imgproc.FILLED); //draw rectangle around contours
 
         Mat gray_not = new Mat(gray.rows(), gray.cols(), gray.type());
         Core.bitwise_not(gray, gray_not);
@@ -128,7 +130,7 @@ public class DetectMethods extends AppCompatActivity {
         return blank;
     }
 
-    public Mat find_horiz(Mat filtered) {
+    private Mat find_horiz(Mat filtered) { //find horizontal lines
         Mat bw = new Mat(filtered.rows(), filtered.cols(), filtered.type());
         Imgproc.adaptiveThreshold(filtered, bw, 255, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 15, -2);
         Mat horizontal = bw.clone();
@@ -143,7 +145,7 @@ public class DetectMethods extends AppCompatActivity {
         return lines;
     }
 
-    public Mat find_vert(Mat filtered) {
+    private Mat find_vert(Mat filtered) { //find vertical lines
         Mat bw = new Mat(filtered.rows(), filtered.cols(), filtered.type());
         Imgproc.adaptiveThreshold(filtered, bw, 255, Imgproc.ADAPTIVE_THRESH_MEAN_C, Imgproc.THRESH_BINARY, 15, -2);
         // find vertical
@@ -185,12 +187,12 @@ public class DetectMethods extends AppCompatActivity {
         return lines;
     }
 
-    public int getAxis(double theta) {
-        if (1.35 < theta && theta < 1.7) return 0;
-        if (0 <= theta && theta < 0.2) return 1;
+    private int getAxis(double theta) {
+        if (1.35 < theta && theta < 1.7) return 0; //horizontal
+        if (0 <= theta && theta < 0.2) return 1; //vertical
         return 2;
     }
-    public int[] draw_lines(Mat lines, Mat draw) {
+    private int[] draw_lines(Mat lines, Mat draw) { //draw horizontal and vertical lines where there are errors in printing
         if (lines == null) return new int[] {0, 0};
 
         List<double[]> horiz = new ArrayList<>();
@@ -242,7 +244,7 @@ public class DetectMethods extends AppCompatActivity {
                 }
             }
         }
-        vert.sort((o1, o2) -> Double.compare(o2[0], o1[0]));
+        vert.sort((o1, o2) -> Double.compare(o2[0], o1[0])); //check if similar lines have already been drawn
         double prevh = 0;
         if (!vert.isEmpty()) prevh = vert.get(0)[0];
         List<double[]> new_vert = new ArrayList<>();
@@ -262,7 +264,7 @@ public class DetectMethods extends AppCompatActivity {
         }
         return new int[] {horiz.size(), vert.size()};
     }
-    public void find_lines(String name, Mat src) {
+    private Bitmap find_lines(String name, Mat src) { //find where the errors are
         Mat draw = src.clone();
         Mat gray = preprocess(draw);
 
@@ -273,15 +275,26 @@ public class DetectMethods extends AppCompatActivity {
         int[] h = draw_lines(hlines, draw);
         int[] v = draw_lines(vlines, draw);
 
-        if (h[0] + v[0] > 0) System.out.println("horizontal error detected");
-        if (h[1] + v[1] > 2) System.out.println("vertical error detected");
-        Imgcodecs.imwrite("HERE.png", draw);
+        int horiz_errors = h[0] + v[0];
+        int vert_errors = h[1] + v[1];
+        if (horiz_errors > 0) System.out.println(horiz_errors + " horizontal error(s) detected");
+        if (vert_errors > 2) System.out.println(vert_errors + " vertical error(s) detected");
+        boolean saved = Imgcodecs.imwrite("HERE.png", draw);
+        Log.i(TAG, "detected image saved: " + saved);
 //        show_wait_destroy("detected.png");
+        Bitmap bmp = Bitmap.createBitmap(draw.cols(), draw.rows(), Bitmap.Config.ARGB_8888);
+        Utils.matToBitmap(draw, bmp);
+        return bmp;
     }
 
-    public void detect(Context context, String arg) throws IOException {
+    public void detect(String arg, Context context, View v) throws IOException { //main function to call
         //read file
-        Mat src = read_img(context, arg);
-        find_lines(arg, src);
+        CameraMethods cameraMethods = new CameraMethods();
+        cameraMethods.init(context, v);
+        cameraMethods.dispatchTakePictureIntent();
+        cameraMethods.setPic();
+        Mat src = read_img(arg);
+        Bitmap bmp = find_lines(arg, src);
+        cameraMethods.setPic(bmp);
     }
 }

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.cloudpos.diagonallinetest.app-mergeDebugResources-11:/values-th/values-th.xml",
+            "outputFile": "com.cloudpos.diagonallinetest.app-mergeDebugResources-15:/values-th/values-th.xml",
             "map": [
                 {
                     "source": "/home/tiana/.gradle/caches/transforms-4/14f962dfd1e67bd3aff13d3d7228b759/transformed/play-services-basement-18.4.0/res/values-th/values.xml",

@@ -1,0 +1,4 @@
+com.cloudpos.diagonallinetest.test.app-androidTest-0 /home/tiana/Downloads/wizarpos/DiagonalLines/app/build/generated/res/resValues/androidTest/debug
+com.cloudpos.diagonallinetest.test.app-mergeDebugAndroidTestResources-1 /home/tiana/Downloads/wizarpos/DiagonalLines/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
+com.cloudpos.diagonallinetest.test.app-mergeDebugAndroidTestResources-2 /home/tiana/Downloads/wizarpos/DiagonalLines/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
+com.cloudpos.diagonallinetest.test.app-debugAndroidTest-3 /home/tiana/Downloads/wizarpos/DiagonalLines/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources

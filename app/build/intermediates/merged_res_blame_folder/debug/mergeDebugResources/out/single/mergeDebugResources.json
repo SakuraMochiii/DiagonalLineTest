@@ -1,62 +1,90 @@
 [
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/mipmap-mdpi_ic_launcher.png.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/mipmap-mdpi/ic_launcher.png"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/mipmap-mdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/mipmap-xhdpi/ic_launcher.png"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/layout_camera.xml.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/layout/camera.xml"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/mipmap-xxxhdpi/ic_launcher.png"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/layout_activity_main_land.xml.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/layout/activity_main_land.xml"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/drawable-mdpi_diag_test.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/drawable-mdpi/diag_test.png"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/drawable_ic_launcher_background.xml.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/drawable/ic_launcher_background.xml"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/mipmap-xhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/mipmap-xxhdpi/ic_launcher_round.png"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/mipmap-hdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/drawable_black_square.xml.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/drawable/black_square.xml"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/mipmap-hdpi/ic_launcher.png"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/mipmap-mdpi/ic_launcher_round.png"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/xml_file_paths.xml.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/xml/file_paths.xml"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/mipmap-xxhdpi/ic_launcher.png"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/layout_print_detect.xml.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/layout/print_detect.xml"
     },
     {
-        "merged": "com.cloudpos.diagonallinetest.app-debug-13:/layout_activity_main_land.xml.flat",
-        "source": "com.cloudpos.diagonallinetest.app-main-15:/layout/activity_main_land.xml"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/drawable_black_square.xml.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/drawable/black_square.xml"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/layout_print_detect.xml.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/layout/print_detect.xml"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/mipmap-xhdpi/ic_launcher_round.png"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/drawable-hdpi_diag_test.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/drawable-hdpi/diag_test.png"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/mipmap-hdpi/ic_launcher_round.png"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/drawable-xxhdpi_diag_test.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/drawable-xxhdpi/diag_test.png"
     },
     {
-        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-13:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-15:/mipmap-xxxhdpi/ic_launcher_round.png"
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/drawable-xhdpi_diag_test.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/drawable-xhdpi/diag_test.png"
+    },
+    {
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/drawable-xxxhdpi_diag_test.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/drawable-xxxhdpi/diag_test.png"
+    },
+    {
+        "merged": "com.cloudpos.diagonallinetest.app-debug-17:/layout_print_detect.xml.flat",
+        "source": "com.cloudpos.diagonallinetest.app-main-19:/layout/print_detect.xml"
+    },
+    {
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/layout_activity_main_land.xml.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/layout/activity_main_land.xml"
+    },
+    {
+        "merged": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-debug-17:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/home/tiana/.gradle/daemon/8.6/com.cloudpos.diagonallinetest.app-main-19:/mipmap-mdpi/ic_launcher_round.png"
     }
 ]
